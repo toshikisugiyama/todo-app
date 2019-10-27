@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Task extends Model
 {
     const STATUS = [
-        1 => ['label' => '未着手'],
-        2 => ['label' => '進行中'],
-        3 => ['label' => '完了'],
+        1 => ['label' => '未着手', 'class' => 'label-danger'],
+        2 => ['label' => '進行中', 'class' => 'label-info'],
+        3 => ['label' => '完了', 'class' => ''],
     ];
 
     public function getStatusLabelAttribute()
@@ -19,5 +19,14 @@ class Task extends Model
             return '';
         }
         return self::STATUS[$status]['label'];
+    }
+
+    public function getStatusClassAttribute()
+    {
+        $status = $this->attributes['status'];
+        if (!isset(self::STATUS[$status])) {
+            return '';
+        }
+        return self::STATUS[$status]['class'];
     }
 }
