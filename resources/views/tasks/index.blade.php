@@ -1,19 +1,6 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Todo App</title>
-  <link rel="stylesheet" href="/css/app.css">
-</head>
-<body>
-<header>
-  <nav class="my-navbar">
-    <a href="/" class="my-navbar-brand">ToDo App</a>
-  </nav>
-</header>
-<main>
+@extends('layout')
+
+@section('content')
   <div class="container">
     <div class="row">
       <div class="col col-md-4">
@@ -72,6 +59,4 @@
       </div>
     </div>
   </div>
-</main>
-</body>
-</html>
+@endsection
