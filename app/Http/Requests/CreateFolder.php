@@ -7,13 +7,6 @@ use Illuminate\Foundation\Http\FormRequest;
 class CreateFolder extends FormRequest
 {
 
-    public function attributes()
-    {
-        return [
-            'title' => 'フォルダ名',
-        ];
-    }
-
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -32,7 +25,14 @@ class CreateFolder extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required',
+            'title' => 'required | max:20',
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'title' => 'フォルダ名',
         ];
     }
 }
