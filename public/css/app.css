@@ -2,6 +2,10 @@
   background-color: #f4f7f8;
 }
 
+body ul {
+  list-style: none;
+}
+
 body .my-navbar {
   -webkit-box-align: center;
           align-items: center;
