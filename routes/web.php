@@ -8,3 +8,4 @@ Route::get('/folders/{id}/tasks/create', 'TaskController@showCreateForm')->name(
 Route::post('/folders/{id}/tasks/create', 'TaskController@create');
 Route::get('/folders/{id}/tasks/edit', 'TaskController@showEditForm')->name('tasks.edit');
 Route::post('/folders/{id}/tasks/edit', 'TaskController@edit');
+Auth::routes();
