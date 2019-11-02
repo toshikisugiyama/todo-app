@@ -7,7 +7,7 @@
         <div class="panel panel-default">
           <div class="panel-heading">フォルダ</div>
           <div class="panel-body">
-            <a href="#">
+            <a href="{{ route('folders.create') }}">
               フォルダを追加する
             </a>
             @foreach($folders as $folder)
