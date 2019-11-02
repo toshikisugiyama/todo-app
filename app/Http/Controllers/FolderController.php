@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Task;
 use App\Folder;
 use Illuminate\Http\Request;
 
-class TaskController extends Controller
+class FolderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +14,7 @@ class TaskController extends Controller
      */
     public function index()
     {
-        $folders = Folder::all();
-        return view('tasks/index', [
-            'folders' => $folders,
-        ]);
+        //
     }
 
     /**
@@ -45,10 +41,10 @@ class TaskController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Task  $task
+     * @param  \App\Folder  $folder
      * @return \Illuminate\Http\Response
      */
-    public function show(Task $task)
+    public function show(Folder $folder)
     {
         //
     }
@@ -56,10 +52,10 @@ class TaskController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Task  $task
+     * @param  \App\Folder  $folder
      * @return \Illuminate\Http\Response
      */
-    public function edit(Task $task)
+    public function edit(Folder $folder)
     {
         //
     }
@@ -68,10 +64,10 @@ class TaskController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Task  $task
+     * @param  \App\Folder  $folder
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Task $task)
+    public function update(Request $request, Folder $folder)
     {
         //
     }
@@ -79,10 +75,10 @@ class TaskController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Task  $task
+     * @param  \App\Folder  $folder
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Task $task)
+    public function destroy(Folder $folder)
     {
         //
     }

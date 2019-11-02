@@ -10,9 +10,13 @@
             <a href="#">
               フォルダを追加する
             </a>
-            <div class="list-group">
-              <a href="" class="list-group-item"></a>
-            </div>
+            @foreach($folders as $folder)
+              <div class="list-group">
+                <a href="{{ route('tasks.index', ['id' => $folder->id]) }}" class="list-group-item">
+                  {{ $folder->title }}
+                </a>
+              </div>
+            @endforeach
           </div>
         </div>
       </div>
