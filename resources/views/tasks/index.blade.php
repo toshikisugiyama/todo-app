@@ -38,7 +38,7 @@
               @foreach($tasks as $task)
                 <tr>
                   <td>{{ $task->title }}</td>
-                  <td>{{ $task->status }}</td>
+                  <td>{{ $task->status_label }}</td>
                   <td>{{ $task->due_date }}</td>
                 </tr>
               @endforeach
