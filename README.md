@@ -34,9 +34,9 @@
 |---|---|---|---|---|---|---|---|---|---|
 |tasks|id|bigInteger|20|N||Y|Y|||
 ||folder_id|bigInteger|20|N||Y||Y||
-||title|varchar|20|||Y||||
-||status|integer|11||1|Y|||1: 未着手, 2: 進行中, 3: 完了|
-||due_date|date|11|||Y||||
+||title|varchar|100|||Y||||
+||status|integer|||1|Y|||1: 未着手, 2: 進行中, 3: 完了|
+||due_date|date||||Y||||
 ||created_at|timestamp|||null|||||
 ||updated_at|timestamp|||null|||||
 

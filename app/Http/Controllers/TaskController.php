@@ -13,11 +13,15 @@ class TaskController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(int $id)
     {
         $folders = Folder::all();
+        $current_folder = Folder::find($id);
+        $tasks = Task::where('folder_id', $current_folder->id)->orderBy('due_date')->get();
         return view('tasks/index', [
             'folders' => $folders,
+            'current_folder_id' => $current_folder->id,
+            'tasks' => $tasks,
         ]);
     }
 

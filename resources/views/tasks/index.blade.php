@@ -20,8 +20,31 @@
           </div>
         </div>
       </div>
-      <div class="col col-md-8">
-
+      <div class="panel-group col col-md-8">
+        <div class="panel panel-default">
+          <div class="panel-heading">タスク</div>
+          <div class="panel-body">
+            <div class="text-right">
+              <a href="#" class="btn btn-default btn-block">
+                タスクを追加する
+              </a>
+            </div>
+            <table class="table">
+              <tr>
+                <th>タイトル</th>
+                <th>状態</th>
+                <th>期限</th>
+              </tr>
+              @foreach($tasks as $task)
+                <tr>
+                  <td>{{ $task->title }}</td>
+                  <td>{{ $task->status }}</td>
+                  <td>{{ $task->due_date }}</td>
+                </tr>
+              @endforeach
+            </table>
+          </div>
+        </div>
       </div>
     </div>
   </div>
