@@ -39,7 +39,7 @@
                 <tr>
                   <td>{{ $task->title }}</td>
                   <td>{{ $task->status_label }}</td>
-                  <td>{{ $task->due_date }}</td>
+                  <td>{{ $task->formatted_due_date }}</td>
                 </tr>
               @endforeach
             </table>
