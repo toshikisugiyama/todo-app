@@ -40,6 +40,14 @@
                   <td>{{ $task->title }}</td>
                   <td>{{ $task->status_label }}</td>
                   <td>{{ $task->formatted_due_date }}</td>
+                  <td>
+                    <a href="{{ route('tasks.edit', [
+                        'id' => $current_folder_id,
+                        'task_id' => $task->id,
+                      ]) }}">
+                      編集
+                    </a>
+                  </td>
                 </tr>
               @endforeach
             </table>

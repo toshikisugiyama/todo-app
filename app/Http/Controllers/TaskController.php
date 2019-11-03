@@ -73,9 +73,14 @@ class TaskController extends Controller
      * @param  \App\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function edit(Task $task)
+    public function edit(int $id, int $task_id)
     {
-        //
+        $folder_id = Folder::find($id);
+        $task = Task::find($task_id);
+        return view('tasks/edit', [
+            'folder_id' => $folder_id,
+            'task' => $task,
+        ]);
     }
 
     /**
