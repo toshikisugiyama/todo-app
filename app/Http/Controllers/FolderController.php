@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Folder;
 use Illuminate\Http\Request;
+use App\Http\Requests\CreateFolder;
 
 class FolderController extends Controller
 {
@@ -24,7 +25,7 @@ class FolderController extends Controller
      */
     public function create()
     {
-        //
+        return view('folders.create');
     }
 
     /**
@@ -33,9 +34,14 @@ class FolderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateFolder $request)
     {
-        //
+        $folder = new Folder();
+        $folder->title = $request->title;
+        $folder->save();
+        return redirect()->route('tasks.index',[
+            'id' => $folder->id,
+        ]);
     }
 
     /**
