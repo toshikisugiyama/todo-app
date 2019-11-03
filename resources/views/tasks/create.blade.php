@@ -14,11 +14,11 @@
           @csrf
           <div class="row my-3">
             <label for="title" class="col-md-4">タイトル</label>
-            <input id="title" name="title" type="text" class="col-md-8" valule="{{ old('title') }}">
+            <input id="title" name="title" type="text" class="col-md-8" value="{{ old('title') }}">
           </div>
           <div class="row my-3">
             <label for="due_date" class="col-md-4">期限</label>
-            <input id="due_date" name="due_date" type="date" class="col-md-8" valule="{{ old('due_date') }}">
+            <input id="due_date" name="due_date" type="date" class="col-md-8" value="{{ old('due_date') }}">
           </div>
           @if($errors->any())
             @foreach($errors->all() as $message)
