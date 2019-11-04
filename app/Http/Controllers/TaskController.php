@@ -90,9 +90,12 @@ class TaskController extends Controller
      * @param  \App\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Task $task)
+    public function update(int $id)
     {
-        //
+        $current_folder = Folder::find($id);
+        return redirect()->route('tasks.index',[
+            'id' => $current_folder,
+        ]);
     }
 
     /**

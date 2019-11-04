@@ -21,15 +21,31 @@
               id="title"
               name="title"
               class="col-8"
-              value="{{ old('title') }}"
-            >
+              value="{{ old('title', $task->title) }}"
+            />
           </div>
           <div class="row my-3">
-            <label for=""></label>
+            <label for="status" class="col-4">状態</label>
+            <select name="status" id="status" class="col-8">
+            @foreach(App\Task::STATUS as $key => $val)
+              <option
+                value="{{ $key }}"
+                {{ $key === old('status', $task->status)?'selected':'' }}
+              >
+                {{ $val['label'] }}
+              </option>
+            @endforeach
+            </select>
           </div>
           <div class="row my-3">
             <label for="due_date" class="col-4">期限</label>
-            <input type="date" id="due_date" name="due_date" class="col-8">
+            <input
+              type="date"
+              id="due_date"
+              name="due_date"
+              class="col-8"
+              value="{{ old('due_date', $task->due_date) }}"
+            />
           </div>
           <div class="row my-3">
             <button type="submit" class="btn btn-secondary mx-auto">送信</button>
