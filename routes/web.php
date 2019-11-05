@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+
+Route::get('/', 'HomeController@index')->name('home');
 Route::get('folders/{id}/tasks', 'TaskController@index')->name('tasks.index');
 Route::get('/folders/create', 'FolderController@create')->name('folders.create');
 Route::post('/folders/create', 'FolderController@store');

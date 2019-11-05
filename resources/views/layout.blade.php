@@ -12,7 +12,7 @@
     <nav class="navbar navbar-dark bg-dark">
       <div class="container">
         <div class="row">
-          <a href="#" class="navbar-brand">ToDo App</a>
+          <a href="{{ route('home') }}" class="navbar-brand">ToDo App</a>
         </div>
       </div>
     </nav>
