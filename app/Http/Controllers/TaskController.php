@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\Task;
 use App\Folder;
 use Illuminate\Http\Request;
@@ -18,6 +19,7 @@ class TaskController extends Controller
     public function index(int $id)
     {
         $folders = Folder::all();
+        // $folders = Auth::user()->folders()->all();
         $current_folder = Folder::find($id);
         $tasks = $current_folder->tasks()->get();
         return view('tasks/index', [
