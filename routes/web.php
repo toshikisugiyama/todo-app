@@ -20,3 +20,7 @@ Route::get('/folders/{id}/tasks/create', 'TaskController@create')->name('tasks.c
 Route::post('/folders/{id}/tasks/create', 'TaskController@store');
 Route::get('/folders/{id}/tasks/{task_id}/edit', 'TaskController@edit')->name('tasks.edit');
 Route::post('/folders/{id}/tasks/{task_id}/edit', 'TaskController@update');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
