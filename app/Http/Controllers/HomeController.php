@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Folder;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,10 @@ class HomeController extends Controller
      */
     public function index()
     {
+        if (Auth::user()->folders()->first()) {
+            $user_id = Auth::id();
+            return redirect()->route('tasks.index', ['id' => $user_id]);
+        }
         return view('home');
     }
 }
