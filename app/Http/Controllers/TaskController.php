@@ -18,8 +18,7 @@ class TaskController extends Controller
      */
     public function index(int $id)
     {
-        $folders = Folder::all();
-        // $folders = Auth::user()->folders()->all();
+        $folders = Folder::all()->where('user_id', Auth::id())->all();
         $current_folder = Folder::find($id);
         $tasks = $current_folder->tasks()->get();
         return view('tasks/index', [
