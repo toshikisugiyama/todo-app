@@ -18,8 +18,7 @@ class TaskController extends Controller
      */
     public function index(int $id)
     {
-        $folders = Folder::all();
-        // $folders = Auth::user()->folders()->all();
+        $folders = Auth::user()->folders()->get();
         $current_folder = Folder::find($id);
         $tasks = $current_folder->tasks()->get();
         return view('tasks/index', [
@@ -111,8 +110,12 @@ class TaskController extends Controller
      * @param  \App\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Task $task)
+    public function destroy(int $id, int $task_id)
     {
-        //
+        $current_folder = Auth::user()->folders()->first();
+        Task::destroy($task_id);
+        return redirect()->route('tasks.index', [
+            'id' => $current_folder->id,
+        ]);
     }
 }

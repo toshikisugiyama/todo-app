@@ -25,10 +25,12 @@ class HomeController extends Controller
      */
     public function index()
     {
+        // ユーザーがフォルダを持っていたら 'task.index' にリダイレクト
         if (Auth::user()->folders()->first()) {
             $user_id = Auth::id();
             return redirect()->route('tasks.index', ['id' => $user_id]);
         }
+        // ユーザーがフォルダを持っていなければ、'home' ビューを表示
         return view('home');
     }
 }
