@@ -37,7 +37,11 @@
             @foreach($tasks as $task)
               <tr>
                 <td>{{ $task->title }}</td>
-                <td>{{ $task->status_label }}</td>
+                <td>
+                  <span class="badge {{ $task->status_badge }} p-2">
+                    {{ $task->status_label }}
+                  </span>
+                </td>
                 <td>{{ $task->formatted_due_date }}</td>
                 <td>
                   <a
