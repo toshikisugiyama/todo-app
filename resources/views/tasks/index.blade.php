@@ -52,7 +52,7 @@
                 </td>
                 <td>
                   <a
-                    href="#"
+                    href="{{ route('tasks.delete', ['id' => $current_folder_id, 'task_id' => $task->id,]) }}"
                     class="btn btn-outline-danger col-12"
                   >
                     削除
