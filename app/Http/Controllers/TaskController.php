@@ -20,6 +20,9 @@ class TaskController extends Controller
     {
         $folders = Auth::user()->folders()->get();
         $current_folder = Folder::find($id);
+        if (is_null($current_folder)) {
+            abort(404);
+        }
         $tasks = $current_folder->tasks()->get();
         return view('tasks/index', [
             'folders' => $folders,
