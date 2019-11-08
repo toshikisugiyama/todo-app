@@ -23,12 +23,12 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Folder $folder)
     {
         // ユーザーがフォルダを持っていたら 'task.index' にリダイレクト
         if (Auth::user()->folders()->first()) {
-            $user_id = Auth::id();
-            return redirect()->route('tasks.index', ['id' => $user_id]);
+            $folder = Auth::user()->folders()->first();
+            return redirect()->route('tasks.index',['folder'=>$folder->id]);
         }
         // ユーザーがフォルダを持っていなければ、'home' ビューを表示
         return view('home');

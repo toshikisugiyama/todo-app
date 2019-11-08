@@ -7,8 +7,8 @@
       <div class="col-12 col-md-4 offset-md-4">
         <form
           action="{{ route('tasks.edit', [
-              'id' => $folder_id,
-              'task_id' => $task->id,
+              'folder' => $folder,
+              'task' => $task,
             ])
           }}"
           method="post"
