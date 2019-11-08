@@ -13,7 +13,7 @@
           </div>
           @foreach($folders as $folder)
             <div class="list-group">
-              <a href="{{ route('tasks.index', ['id' => $folder->id]) }}" class="list-group-item list-group-item-action">
+              <a href="{{ route('tasks.index', ['folder' => $folder]) }}" class="list-group-item list-group-item-action">
                 {{ $folder->title }}
               </a>
             </div>
@@ -24,7 +24,12 @@
         <h3>タスク</h3>
         <div>
           <div>
-            <a href="{{ route('tasks.create', ['id' => $current_folder_id]) }}" class="btn btn-primary col-12">
+            <a
+              href="{{ route('tasks.create', [
+                'folder' => $current_folder_id
+              ]) }}"
+              class="btn btn-primary col-12"
+            >
               タスクを追加する
             </a>
           </div>
@@ -46,8 +51,8 @@
                 <td>
                   <a
                     href="{{ route('tasks.edit', [
-                      'id' => $current_folder_id,
-                      'task_id' => $task->id,
+                      'folder' => $current_folder_id,
+                      'task' => $task,
                     ]) }}"
                     class="btn btn-outline-primary col-12"
                   >
@@ -56,7 +61,10 @@
                 </td>
                 <td>
                   <a
-                    href="{{ route('tasks.delete', ['id' => $current_folder_id, 'task_id' => $task->id,]) }}"
+                    href="{{ route('tasks.delete', [
+                      'folder' => $current_folder_id,
+                      'task' => $task,
+                    ]) }}"
                     class="btn btn-outline-danger col-12"
                   >
                     削除

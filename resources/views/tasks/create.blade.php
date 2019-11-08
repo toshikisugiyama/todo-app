@@ -7,7 +7,7 @@
       <div class="col-12 col-md-4 offset-md-4">
         <form
           action="{{ route('tasks.create', [
-            'id' => $folder_id,
+            'folder' => $folder,
           ]) }}"
           method="post"
         >
@@ -28,7 +28,7 @@
             @endforeach
           @endif
           <div class="row my-3">
-            <button type="submit" class="mx-auto">送信</button>
+            <button type="submit" class="mx-auto btn btn-primary">送信</button>
           </div>
         </form>
       </div>
