@@ -12,15 +12,17 @@
 */
 
 Route::group(['middleware' => 'auth'], function(){
+    Route::group(['middleware' => 'can:view,folder'], function(){
+        Route::get('folders/{folder}/tasks', 'TaskController@index')->name('tasks.index');
+        Route::get('/folders/{folder}/tasks/create', 'TaskController@create')->name('tasks.create');
+        Route::post('/folders/{folder}/tasks/create', 'TaskController@store');
+        Route::get('/folders/{folder}/tasks/{task}/edit', 'TaskController@edit')->name('tasks.edit');
+        Route::post('/folders/{folder}/tasks/{task}/edit', 'TaskController@update');
+        Route::get('/folders/{folder}/tasks/{task}/delete', 'TaskController@destroy')->name('tasks.delete');
+    });
     Route::get('/', 'HomeController@index')->name('home');
-    Route::get('folders/{folder}/tasks', 'TaskController@index')->name('tasks.index');
     Route::get('/folders/create', 'FolderController@create')->name('folders.create');
     Route::post('/folders/create', 'FolderController@store');
-    Route::get('/folders/{folder}/tasks/create', 'TaskController@create')->name('tasks.create');
-    Route::post('/folders/{folder}/tasks/create', 'TaskController@store');
-    Route::get('/folders/{folder}/tasks/{task}/edit', 'TaskController@edit')->name('tasks.edit');
-    Route::post('/folders/{folder}/tasks/{task}/edit', 'TaskController@update');
-    Route::get('/folders/{folder}/tasks/{task}/delete', 'TaskController@destroy')->name('tasks.delete');
 });
 
 Auth::routes();
