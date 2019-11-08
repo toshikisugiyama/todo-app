@@ -75,7 +75,7 @@ class TaskController extends Controller
      */
     public function edit(Folder $folder, Task $task)
     {
-        $this->checkRelation();
+        $this->checkRelation($folder, $task);
         return view('tasks/edit', [
             'folder' => $folder,
             'task' => $task,
@@ -91,7 +91,7 @@ class TaskController extends Controller
      */
     public function update(Folder $folder, Task $task, EditTask $request)
     {
-        $this->checkRelation();
+        $this->checkRelation($folder, $task);
         $task->title = $request->title;
         $task->status = $request->status;
         $task->due_date = $request->due_date;
@@ -109,7 +109,7 @@ class TaskController extends Controller
      */
     public function destroy(Folder $folder, Task $task)
     {
-        $this->checkRelation();
+        $this->checkRelation($folder, $task);
         $current_folder = Auth::user()->folders()->first();
         $task->destroy($task->id);
         return redirect()->route('tasks.index', [
