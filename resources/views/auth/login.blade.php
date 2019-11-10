@@ -8,6 +8,11 @@
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
+                    <div class="border offset-md-2 col-md-8 p-3 mb-5">
+                      <h3 class="mb-4 text-center">サンプルアカウント</h3>
+                      <p><span class="font-weight-bold">{{ __('E-Mail Address') }}: </span>guest@email.com</p>
+                      <p><span class="font-weight-bold">{{ __('Password') }}: </span>password</p>
+                    </div>
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
